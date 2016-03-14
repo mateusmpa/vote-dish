@@ -13,4 +13,8 @@ class RestaurantsController < ApplicationController
     
     redirect_to(action: 'index')
   end
+
+  def new
+    @restaurant = Restaurant.new
+  end
 end
