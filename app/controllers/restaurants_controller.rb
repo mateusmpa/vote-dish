@@ -1,10 +1,22 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.order :name
+    
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @restaurants }
+      format.json { render json: @restaurants }
+    end
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @restaurant }
+      format.json { render json: @restaurant }
+    end
   end
 
   def destroy
