@@ -13,4 +13,18 @@ class RestaurantsController < ApplicationController
     
     redirect_to(action: 'index')
   end
+
+  def new
+    @restaurant = Restaurant.new
+  end
+
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.save
+    redirect_to(action: 'show', id: @restaurant)
+  end
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :specialty)
+  end
 end
