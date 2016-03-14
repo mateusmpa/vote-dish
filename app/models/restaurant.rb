@@ -8,6 +8,9 @@ class Restaurant < ActiveRecord::Base
 
   validate :first_letter_must_be_uppercase
 
+  has_many :qualifications
+  has_and_belongs_to_many :dishes
+
   private
   def first_letter_must_be_uppercase
     errors.add(:name, 'first letter must be uppercase') unless name =~ /[A-Z].*/
