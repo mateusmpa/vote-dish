@@ -1,3 +1,19 @@
-<p>
-  I'm in the controller restaurants
-</p>
+<h1>List of Restaurants</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Specialty</th>
+  </tr>
+
+<% @restaurants.each do |restaurant| %>
+  <tr>
+    <td><%= restaurant.id %></td>
+    <td><%= restaurant.name %></td>
+    <td><%= restaurant.address %></td>
+    <td><%= restaurant.specialty %></td>
+  </tr>
+<% end %>
+</table>

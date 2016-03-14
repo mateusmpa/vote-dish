@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
   def index
-    render 'index'
+    @restaurants = Restaurant.order :name
   end
 end
