@@ -1,0 +1,8 @@
+<h1>Editing Restaurant</h1>
+
+<%= form_for @restaurant do |f| %>
+  Name: <%= f.text_field :name %><br/>
+  Address: <%= f.text_field :address %><br/>
+  Specialty: <%= f.text_field :specialty %><br/>
+  <%= f.submit %>
+<% end %>
