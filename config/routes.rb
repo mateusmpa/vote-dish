@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customers
   match 'hello' => 'hello_world#index', via: 'get'
   
   resources :restaurants
