@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :qualifications
+  resources :customers
   match 'hello' => 'hello_world#index', via: 'get'
   
   resources :restaurants
