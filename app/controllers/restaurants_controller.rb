@@ -20,8 +20,11 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
-    redirect_to(action: 'show', id: @restaurant)
+    if @restaurant.save
+      redirect_to(action: 'show', id: @restaurant)
+    else
+      render action: 'new'
+    end
   end
 
   def edit

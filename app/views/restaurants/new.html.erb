@@ -1,5 +1,11 @@
 <h1>Adding Restaurant</h1>
 
+<ul>
+<% @restaurant.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
 <%= form_for @restaurant do |f| %>
   Name: <%= f.text_field :name %><br/>
   Address: <%= f.text_field :address %><br/>
