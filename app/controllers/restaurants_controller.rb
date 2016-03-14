@@ -20,8 +20,11 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
-    redirect_to(action: 'show', id: @restaurant)
+    if @restaurant.save
+      redirect_to(action: 'show', id: @restaurant)
+    else
+      render action: 'new'
+    end
   end
 
   def edit
@@ -30,9 +33,11 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find params[:id]
-    @restaurant.update_attributes(restaurant_params)
-
-    redirect_to action: 'show', id: @restaurant
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to action: 'show', id: @restaurant
+    else
+      render action: 'edit'
+    end
   end
 
   def restaurant_params
