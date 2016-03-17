@@ -14,11 +14,13 @@ class QualificationsController < ApplicationController
 
   # GET /qualifications/new
   def new
+    prepare_form
     @qualification = Qualification.new
   end
 
   # GET /qualifications/1/edit
   def edit
+    prepare_form
   end
 
   # POST /qualifications
@@ -31,6 +33,7 @@ class QualificationsController < ApplicationController
         format.html { redirect_to @qualification, notice: 'Qualification was successfully created.' }
         format.json { render :show, status: :created, location: @qualification }
       else
+        prepare_form
         format.html { render :new }
         format.json { render json: @qualification.errors, status: :unprocessable_entity }
       end
@@ -45,6 +48,7 @@ class QualificationsController < ApplicationController
         format.html { redirect_to @qualification, notice: 'Qualification was successfully updated.' }
         format.json { render :show, status: :ok, location: @qualification }
       else
+        prepare_form
         format.html { render :edit }
         format.json { render json: @qualification.errors, status: :unprocessable_entity }
       end
@@ -62,6 +66,11 @@ class QualificationsController < ApplicationController
   end
 
   private
+    def prepare_form
+      @customers = Customer.order :name
+      @restaurants = Restaurant.order :name
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_qualification
       @qualification = Qualification.find(params[:id])
