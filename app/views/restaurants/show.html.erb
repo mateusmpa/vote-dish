@@ -14,7 +14,14 @@
   <b>Specialty: </b>
   <%= @restaurant.specialty %>
 </p>
-<br/>
+
+<b>Average note: </b>
+  <%= @restaurant.qualifications.average(:note) %><br/>
+<b>Qualifications: </b>
+  <%= @restaurant.qualifications.count %><br/>
+<b>Average amount spent: </b>
+  <%= @restaurant.qualifications.average(:amount_spent) %><br/><br/>
+
 <%= link_to 'Edit', action: 'edit', id: @restaurant %> |
 <%= link_to 'Back', action: 'index' %> |
 <%= link_to 'Qualify this Restaurant', controller: 'qualifications', action: 'new', restaurant: @restaurant %>
