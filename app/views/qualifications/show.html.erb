@@ -17,7 +17,7 @@
 
 <p>
   <strong>Amount spent:</strong>
-  <%= @qualification.amount_spent %>
+  <%= formatted_value(@qualification.amount_spent) %>
 </p>
 
 <%= link_to 'Edit', edit_qualification_path(@qualification) %> |
