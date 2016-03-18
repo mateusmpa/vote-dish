@@ -10,4 +10,9 @@ module ApplicationHelper
     render partial: 'comments/new_comment',
            locals: { commentable: commentable }
   end
+
+  def comments(commentable)
+    render partial: 'comments/comments',
+           locals: { comments: commentable.comments }
+  end
 end

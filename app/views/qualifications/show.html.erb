@@ -20,6 +20,8 @@
   <%= formatted_value(@qualification.amount_spent) %>
 </p>
 
+<%= comments @qualification %>
+
 <%= new_comment @qualification %>
 
 <%= link_to 'Edit', edit_qualification_path(@qualification) %> |
