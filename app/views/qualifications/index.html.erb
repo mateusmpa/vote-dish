@@ -19,7 +19,7 @@
         <td><%= qualification.customer.name %></td>
         <td><%= qualification.restaurant.name %></td>
         <td><%= qualification.note %></td>
-        <td><%= qualification.amount_spent %></td>
+        <td><%= formatted_value(qualification.amount_spent) %></td>
         <td><%= link_to 'Show', qualification %></td>
         <td><%= link_to 'Edit', edit_qualification_path(qualification) %></td>
       </tr>
