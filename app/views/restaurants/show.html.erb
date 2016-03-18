@@ -22,6 +22,9 @@
 <b>Average amount spent: </b>
   <%= @restaurant.qualifications.average(:amount_spent) %><br/><br/>
 
+<%= new_comment @restaurant %>
+
 <%= link_to 'Edit', action: 'edit', id: @restaurant %> |
 <%= link_to 'Back', action: 'index' %> |
 <%= link_to 'Qualify this Restaurant', controller: 'qualifications', action: 'new', restaurant: @restaurant %>
+
