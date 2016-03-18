@@ -10,4 +10,6 @@ class Qualification < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :restaurant
+
+  has_many :comments, :as => :commentable
 end
