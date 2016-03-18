@@ -5,4 +5,9 @@ module ApplicationHelper
     separator: ',',
     delimiter: '.'
   end
+
+  def new_comment(commentable)
+    render partial: 'comments/new_comment',
+           locals: { commentable: commentable }
+  end
 end
