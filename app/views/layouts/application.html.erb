@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>VoteDish</title>
-  <%= stylesheet_link_tag    'scaffold' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -27,8 +26,12 @@
   </nav>
 
 <div class='container' style = "padding: 60px">
-<%= yield %>
+  <%= yield %>
 </div>
+
+<script type="text/javascript">
+  <%= yield :js %>
+</script>
 
 </body>
 </html>
