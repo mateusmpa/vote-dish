@@ -1,25 +1,25 @@
-<h1>Showing Restaurant</h1>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name: </b>
+  <strong>Name: </strong>
   <%= @restaurant.name %>
 </p>
 
 <p>
-  <b>Address: </b>
+  <strong>Address: </strong>
   <%= @restaurant.address %>
 </p>
 
 <p>
-  <b>Specialty: </b>
+  <strong>Specialty: </strong>
   <%= @restaurant.specialty %>
 </p>
 
-<b>Average note: </b>
+<strong>Average note: </strong>
   <%= @restaurant.qualifications.average(:note) %><br/>
-<b>Qualifications: </b>
+<strong>Qualifications: </strong>
   <%= @restaurant.qualifications.count %><br/>
-<b>Average amount spent: </b>
+<strong>Average amount spent: </strong>
   <%= @restaurant.qualifications.average(:amount_spent) %><br/><br/>
 
 <%= comments @restaurant %>
