@@ -1,4 +1,14 @@
-<p>
-  <%= comment.content %> -
-  <%= link_to '(remover)', comment, method: :delete %>
-</p>
+<div id="comment_<%= comment.id %>" class="panel panel-default">
+  <div class="panel-body">
+    <%= comment.content %> -
+    <%= link_to '(remover)', comment, method: :delete, remote: true, id: "remove_comment_#{comment.id}" %>
+  </div>
+</div>
+
+<% content_for :js do %>
+  $("#remove_comment_<%= comment.id %>").bind("ajax:success",
+    function(){
+      $("#comment_<%= comment.id %>").remove();
+    }
+  );
+<% end %>
