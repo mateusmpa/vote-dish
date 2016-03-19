@@ -1,4 +1,4 @@
-<%= form_for Comment.new , html: { class: "form-horizontal" } do |f| %>
+<%= form_for Comment.new, remote: true, html: { class: "form-horizontal" } do |f| %>
   <%= f.hidden_field :commentable_id, value: commentable.id %>
   <%= f.hidden_field :commentable_type, value: commentable.class %>
 
@@ -13,4 +13,11 @@
         <%= f.submit class: "btn btn-primary" %>
       </div>
     </div>
+<% end %>
+
+<% content_for :js do %>
+  $('form').bind('ajax:complete', function(xhr, result){
+    $('#comments').replaceWith(result.responseText);
+    $('textarea').val("");
+  })
 <% end %>
