@@ -13,3 +13,4 @@
 /tmp
 .rvmvc
 .ruby-gemset
+public/system/*

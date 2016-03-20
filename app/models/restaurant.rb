@@ -1,4 +1,7 @@
 class Restaurant < ActiveRecord::Base
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: '/images/:style/missing.png'
+  validates_attachment_content_type :avatar, content_type: ['image/jpeg', 'image/png', 'image/gif']
+
   validates_presence_of :name, message: 'must be filled'
   validates_presence_of :address, message: 'must be filled'
   validates_presence_of :specialty, message: 'must be filled'
