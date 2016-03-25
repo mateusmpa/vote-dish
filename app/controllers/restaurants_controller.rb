@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.order :name
-    
+
     respond_to do |format|
       format.html
       format.xml { render xml: @restaurants }
@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
-    
+
     redirect_to(action: 'index')
   end
 
@@ -53,6 +53,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :specialty)
+    params.require(:restaurant).permit(:name, :address, :specialty, :avatar)
   end
 end
